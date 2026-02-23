@@ -1,7 +1,7 @@
 :root {
-  --featured-light: #fff068; 
-  --featured-dark: #190066; 
-  --featured-accent: #61dfff; 
+  --featured-light: #fff068;
+  --featured-dark: #190066;
+  --featured-accent: #61dfff;
   --black-light: #f8f9fa;
   --black-mid: #2b2b2b;
   --gray-dark: #212529;
@@ -11,10 +11,10 @@
   --card-text: #fff;
   --category-hover: var(--black-light);
   --category-card-background: var(--black-mid);
-  
+
   /* normal cards */
   --card-shadow: 0 6px 20px rgb(255 255 255 / 8%), 0 3px 6px rgb(255 255 255 / 4%);
-  
+
   /* featured */
   --featured-card-bg: var(--featured-dark);
   --featured-card-content: #fff;
@@ -42,22 +42,34 @@
 }
 
 .cardContainer {
-  --ifm-link-color: var(--ifm-color-emphasis-800);
-  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+  --ifm-link-color: var(--linea-text-primary);
+  --ifm-link-hover-color: var(--linea-text-primary);
   --ifm-link-hover-decoration: none;
 
-  border-radius: calc(var(--ifm-global-radius) * 2);
-  transition: all 0.2s ease-in-out;
+  background-color: var(--homepage-card-background);
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 24px;
+  transition: all 0.3s ease;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  min-height: auto;
+  min-height: 175px;
   position: relative;
 }
 
+[data-theme="dark"] .cardContainer {
+  border-color: #505050;
+}
+
 .cardContainer:hover {
-  box-shadow: var(--card-shadow);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  border-color: var(--linea-highlight-color-2);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+}
+
+[data-theme="dark"] .cardContainer:hover {
+  border-color: var(--linea-purple-light);
 }
 
 .cardContainer *:last-child {
@@ -65,23 +77,30 @@
 }
 
 .cardTitle {
-  color: var(--ifm-color-emphasis-800);
-  font-size: 1.2rem;
+  font-family: 'Atyp Display', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--linea-text-primary);
+  line-height: 1.4;
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
+  margin-bottom: 8px;
 }
 
 .cardDescription {
-  color: var(--ifm-color-emphasis-600);
-  font-size: 0.9rem;
+  font-family: 'Atyp Text', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--linea-text-primary);
+  line-height: 1.4;
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
-  max-height: 3em;
+  max-height: 4.2em;
 }
 
 .categoryCard {

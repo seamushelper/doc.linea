@@ -1,4 +1,5 @@
 import remarkEmdash from "./scripts/remark/remark-emdash.js";
+
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -14,7 +15,7 @@ const COOKBOOK_PUBLIC_API_KEY =
 // const organizationName = "Consensys";
 // const projectName = "doc.linea";
 
-/** @type {import('@docusaurus/types').Config} */
+/** @type {import("@docusaurus/types").Config} */
 const config = {
   title: "Linea",
   tagline: "Everything you need to build onchain.",
@@ -106,10 +107,10 @@ const config = {
       announcementBar: {
         id: "announcement_bar_2026_01_ens_resolver",
         content:
-          '📣 <strong>Attention builders</strong>: ENS resolver contract deprecating soon; get ready to update your configuration. Learn more <a href="/network/how-to/deploy-subdomain#use-ens-contracts">here.</a>',
-        backgroundColor: "#61dfff",
-        textColor: "#121212",
-        isCloseable: false,
+          '⚠️ <strong>Attention builders</strong>: ENS resolver contract deprecating soon; get ready to update your configuration. <a href="/network/how-to/deploy-subdomain#use-ens-contracts">Learn more →</a>',
+        backgroundColor: "#6119ef",
+        textColor: "#ffffff",
+        isCloseable: true,
       },
       colorMode: {
         defaultMode: "dark",
@@ -127,10 +128,10 @@ const config = {
         },
       },
       navbar: {
-        title: "Docs",
         logo: {
           alt: "Linea",
           src: "img/Linea_docs_logo.svg",
+          srcDark: "img/Linea_docs_logo_dark.svg",
         },
         items: [
           {
@@ -139,42 +140,35 @@ const config = {
             position: "left",
             label: "Public network",
             activeBaseRegex: "^/network/",
+            "data-nav-id": "network",
           },
           {
             type: "doc",
-            docId: "protocol/overview",
+            docId: "protocol/quickstart",
             position: "left",
             label: "Protocol",
+            "data-nav-id": "protocol",
           },
           {
             type: "doc",
             docId: "stack/index",
             position: "left",
             label: "Stack",
+            "data-nav-id": "stack",
           },
           {
             type: "doc",
             docId: "api/reference/index",
             position: "left",
             label: "APIs & SDK",
+            "data-nav-id": "api",
           },
           {
-            type: "dropdown",
-            label: "Changelog",
+            type: "doc",
+            docId: "changelog/release-notes",
             position: "right",
-            activeBaseRegex: "^/changelog/",
-            items: [
-              {
-                type: "doc",
-                docId: "changelog/release-notes",
-                label: "Release notes",
-              },
-              {
-                type: "doc",
-                docId: "changelog/security-council-record",
-                label: "Linea Security Council transaction record",
-              },
-            ],
+            label: "Changelog",
+            "data-nav-id": "changelog",
           },
           {
             href: "https://discord.gg/linea",
@@ -258,7 +252,6 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Consensys, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
