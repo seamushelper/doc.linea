@@ -52,7 +52,7 @@ Most transactions should still use the normal path first, with forced transactio
 1. Sign an EIP-1559 transaction for Linea L2.
 2. Fetch the latest finalized state fields from `LineaRollup`.
 3. Submit the signed transaction and required fee to `ForcedTransactionGateway` on L1.
-4. Let the coordinator forward the forced transaction event to the sequencer.
+4. Let the Coordinator forward the forced transaction event to the sequencer.
 5. Confirm that processing occurred before the deadline.
 
 ```mermaid
@@ -90,7 +90,7 @@ Recommended retrieval flow:
 2. Extract `timestamp`, `messageNumber`, and `forcedTransactionNumber`.
 3. Query `rollingHashes(messageNumber)` for `messageRollingHash`.
 4. Query `forcedTransactionRollingHashes(forcedTransactionNumber)` for the forced tx rolling hash.
-5. Submit quickly so your state snapshot does not become stale.
+5. Submit before your state snapshot becomes stale.
 
 ```typescript
 const events = await lineaRollup.queryFilter(lineaRollup.filters.FinalizedStateUpdated());
@@ -150,7 +150,7 @@ Use this checklist before signing:
 - estimate gas on Linea and add a safety buffer
 - ensure enough L2 ETH for `value + gasLimit * maxFeePerGas`
 - simulate calldata where possible
-- submit promptly after reading finalized state
+- submit after reading finalized state
 
 ## Continue reading
 
