@@ -1,0 +1,61 @@
+---
+title: Codex
+image: /img/socialCards/codex.jpg
+---
+
+[Codex](https://codex.io/) is a blockchain data API that provides real-time and
+historical token data across 70+ networks via GraphQL, including Linea.
+
+With Codex, developers can access:
+
+- Real-time and historical token prices
+- DEX trades and liquidity pool data
+- Wallet token balances and activity
+- Token metadata and analytics
+
+**Use Codex if you need:**
+
+- Real-time DEX trading data across multiple chains including Linea
+- Token price feeds with historical data
+- GraphQL API for flexible, efficient queries
+- Cross-chain token and liquidity analytics
+
+## Quickstart
+
+### Get an API key
+
+Sign up at [codex.io](https://codex.io/) to get your API key.
+
+### Query the GraphQL API
+
+```bash
+curl -X POST https://graph.codex.io/graphql \
+  -H "Content-Type: application/json" \
+  -H "Authorization: YOUR_API_KEY" \
+  -d '{"query": "{ getNetworks { name id } }"}'
+```
+
+### Example: Get token prices on Linea
+
+```graphql
+{
+  getTokenPrices(
+    inputs: [
+      {
+        address: "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f"
+        networkId: 59144
+      }
+    ]
+  ) {
+    address
+    networkId
+    priceUsd
+  }
+}
+```
+
+## Learn more
+
+- [Codex API Documentation](https://docs.codex.io/)
+- [API Explorer](https://explorer.codex.io/)
+- [Supported Networks](https://docs.codex.io/reference/supported-networks)
